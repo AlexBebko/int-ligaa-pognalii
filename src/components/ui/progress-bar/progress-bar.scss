@@ -1,0 +1,85 @@
+@import "/src/index.scss";
+
+.circle {
+    display: inline-block;
+    position: relative;
+    width: 62px;
+    height: 62px;
+
+    @include vp-767 {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.circle svg {
+    width: 62px;
+    height: 62px;
+
+    @include vp-767 {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+.circle__progress {
+    fill: none;
+    stroke-width: 3px;
+    stroke:#FF8D30;
+    stroke-linecap: round;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 185.26;
+
+    @include vp-767 {
+        cx: 21;
+        cy: 22;
+        r: 20;
+        stroke-dasharray: 125.6;
+    }   
+}
+
+.circle__text {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.circle__level {
+    display: block;
+    position: relative;
+    max-width: min-content;
+    color: #1D2E5B;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0 auto 3px auto;
+
+    &::after {
+        position: absolute;
+        content: "";
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+    }
+
+    @include vp-767 {
+        margin: 5px auto 0 auto;
+        &::after {
+            display: none;
+        }        
+    }
+}
+
+.circle__title {
+    @include vp-767 {
+        display: none;
+    }   
+}

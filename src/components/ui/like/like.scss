@@ -1,0 +1,46 @@
+@import "/src/index.scss";
+
+.like {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    background-color: transparent;
+    background-image: url("/src/assets/icons/icon_like.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+        background-color:#E2E5F2;
+    }
+
+    &:active {
+        opacity: 0.3;
+    }
+
+    @include vp-767 {
+        width: 30px;
+        height: 30px;
+        background-size: 40%;
+        background-color: #E2E5F2;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.like--active {
+    background-color: #F9EAEA;
+    background-image: url("/src/assets/icons/icon_like-active.svg");
+
+    &:hover {
+        background-color: #F9D8D8;
+
+    }
+
+    &:active {
+        opacity: 0.3;
+    }
+}

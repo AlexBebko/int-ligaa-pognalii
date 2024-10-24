@@ -1,0 +1,50 @@
+@import "/src/global.scss";
+
+.burger-button {
+  display: none;
+
+  @include vp-1023 {
+    display: block;
+    margin-left: auto;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 25px;
+      height: 3px;
+      background-color: $color-default-white;
+      border-radius: 2px;
+      position: absolute;
+      left: 0;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    &::before {
+      top: 50%;
+      transform: translateY(-3px);
+    }
+
+    &::after {
+      top: 50%;
+      transform: translateY(3px);
+    }
+
+    &.is-open::before {
+      top: 50%;
+      background-color: $color-very-light-grey;
+      transform: rotate(45deg);
+    }
+
+    &.is-open::after {
+      top: 50%;
+      background-color: $color-very-light-grey;
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,329 @@
+@import "/src/index.scss";
+
+.date-form {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+    padding-top: 30px;
+    border-top: 1px solid $color-solitude-3;
+
+    @include vp-1023 {
+      padding-top: 26px;
+      gap: 60px;
+    }
+
+    @include vp-767 {
+      padding-top: 22px;
+      border: none;
+      gap: 21px;
+    }
+
+  &__inputs-wrapper {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: 1fr;
+    row-gap: 14px;
+    column-gap: 10px;
+
+    @include vp-1023 {
+      display: flex;
+      flex-direction: column;
+      row-gap: 26px;
+    }
+
+    @include vp-767 {
+      row-gap: 20px;
+    }
+  }
+
+  &__count,
+  &__checkbox {
+    display: flex;
+    align-items: center;
+  }
+
+  &__count {
+    @include vp-1023 {
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+      "name item"
+      "count count";
+      row-gap: 24px;
+
+      &:nth-of-type(n+2) {
+        border-top: 1px solid $color-link-water;
+        padding-top: 25px;
+      }
+    }
+
+    @include vp-767 {
+      row-gap: 8px;
+
+      &:nth-of-type(n+2) {
+        border: none;
+        padding: 0;
+      }
+    }
+  }
+
+  &__checkbox {
+    justify-content: end;
+
+    @include vp-1023 {
+      justify-content: flex-start;
+    }
+
+    @include vp-767 {
+      order: 3;
+    }
+  }
+
+  &__count-label,
+  &__count-text {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    color: $color-catalina-blue;
+  }
+
+  &__count-label {
+    margin-right: 29px;
+
+    &--duration {
+      margin-right: 56px;
+    }
+
+    @include vp-1023 {
+      grid-area: name;
+      letter-spacing: 0.1em;
+      margin: 0;
+    }
+
+    @include vp-767 {
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.09em;
+    }
+  }
+
+  &__count-text {
+    margin-left: 35px;
+
+    @include vp-1023 {
+      grid-area: item;
+      letter-spacing: 0.08em;
+      opacity: 0.3;
+      margin: 0;
+    }
+
+    @include vp-767 {
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 0.07em;
+    }
+  }
+
+  &__count-wrapper {
+    position: relative;
+
+    &:hover {
+      .date-form__count-input {
+        border-width: 2px;
+        border-color: $color-rock-blue;
+      }
+
+      .date-form__button::before,
+      .date-form__button::after {
+        background-color: $color-rock-blue;
+      }
+    }
+
+    &:focus,
+    &:focus-within,
+    &:active {
+      .date-form__count-input {
+        border-width: 2px;
+        border-color: $color-midnight-express-2;
+        outline: none;
+      }
+
+      .date-form__button::before,
+      .date-form__button::after {
+        background-color: $color-midnight-express-2;
+      }
+    }
+
+    @include vp-1023 {
+      grid-area: count;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include vp-767 {
+      width: 14px;
+      height: 14px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: inline-block;
+      height: 2px;
+      width: 100%;
+      background-color: $color-very-light-grey;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: background-color 0.3s ease;
+    }
+
+    &--less {
+      left: 20px;
+
+      @include vp-767 {
+        left: 14px;
+      }
+    }
+
+    &--more {
+      right: 20px;
+
+      @include vp-767 {
+        right: 14px;
+      }
+
+      &::after {
+        height: 100%;
+        width: 2px;
+        content: "";
+        position: absolute;
+        display: inline-block;
+        background-color: $color-very-light-grey;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: background-color 0.3s ease;
+      }
+    }
+  }
+
+  &__count-input {
+    width: 180px;
+    height: 70px;
+    padding: 20px 60px;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    color: $color-catalina-blue;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid $color-link-water;
+    border-radius: 4px;
+
+    transition: border-width 0.3s ease, border-color 0.3s ease;
+
+    @include vp-1023 {
+      width: 100%;
+    }
+
+    @include vp-767 {
+      height: 43px;
+      font-size: 15px;
+      line-height: 14px;
+    }
+  }
+
+  &__checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    column-gap: 23px;
+
+    &:hover,
+    &:focus {
+      .date-form__custom-check {
+        border-color: $color-rock-blue;
+      }
+    }
+
+    &:active {
+      .date-form__custom-check {
+        border-color: $color-lavender;
+        background-color: $color-lavender;
+
+        svg {
+          opacity: 0.3;
+        }
+      }
+    }
+
+    @include vp-1023 {
+      column-gap: 22px;
+    }
+
+    @include vp-767 {
+      column-gap: 13px;
+    }
+  }
+
+  &__checkbox-label {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    color: $color-catalina-blue;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @include vp-767 {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 15px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+  }
+
+  &__custom-check {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border: 1px solid $color-link-water;
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+
+    @include vp-767 {
+      width: 26px;
+      height: 26px;
+    }
+
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.date-form__check-in-label,
+.date-form__check-out-label {
+  display: block;
+  margin-top: 9px;
+}

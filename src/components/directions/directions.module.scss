@@ -1,0 +1,375 @@
+@import "/src/index.scss";
+@import "/src/container.scss";
+
+.directions {
+  padding: 0 0 55px;
+  margin-top: -187px;
+  background-color: $color-solitude;
+
+  @include vp-1023 {
+    padding: 67px 0 42px;
+    margin-top: 0;
+  }
+
+  @include vp-767 {
+    padding: 24px 0 33px;
+  }
+
+  .container {
+    padding: 0 36px;
+
+    @include vp-767 {
+      padding: 0 25px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 455px;
+    row-gap: 25px;
+
+    @include vp-1023 {
+      grid-template-columns: 1fr;
+      padding: 0 40px;
+      gap: 50px;
+    }
+
+    @include vp-767 {
+      padding: 0;
+      gap: 16px;
+    }
+  }
+
+  &__profile {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    gap: 38px;
+    position: relative;
+    z-index: 1;
+    width: 355px;
+
+    @include vp-1023 {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    @include vp-767 {
+      padding: 0 18px;
+      gap: 0;
+    }
+  }
+
+  &__level {
+    position: relative;
+    width: 95px;
+    height: 95px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    top: -31px;
+    padding: 25px 0 12px;
+
+    @include vp-1023 {
+      top: 0;
+    }
+
+    @include vp-767 {
+      width: 100px;
+      height: 100px;
+      padding: 20px 0 20px;
+    }
+
+    &::before {
+      content: "";
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      border: 3px solid $color-picton-blue;
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: center;
+
+      @include vp-1023 {
+        border-color: $color-curious-blue;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+      }
+
+      @include vp-767 {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      border: 3px solid $color-picton-blue;
+      border-top-color: transparent;
+      border-right-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(-15deg);
+      transform-origin: center;
+
+      @include vp-1023 {
+        border-color: $color-curious-blue;
+        border-top-color: transparent;
+        border-right-color: transparent;
+      }
+
+      @include vp-767 {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+  &__level-number {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 0.8;
+    color: $color-default-white;
+    border-bottom: 2px solid rgba($color-default-white, 0.3);
+    padding: 0 7px;
+
+    @include vp-1023 {
+      color: $color-midnight-express-2;
+    }
+  }
+
+  &__level-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1;
+    color: $color-default-white;
+
+    @include vp-1023 {
+      color: $color-charcoal;
+    }
+  }
+
+  &__tags-input-wrap {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding-left: 9.6%;
+
+    @include vp-1023 {
+      grid-row: 3 / 4;
+      grid-column: 1 / 2;
+      padding-left: 0;
+    }
+  }
+
+  &__tags-input {
+    max-width: 732px;
+    background-color: transparent;
+    border: 1px solid $color-link-water;
+    border-radius: 10px;
+    padding: 34px 41px 14px;
+    resize: none;
+
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.1;
+    color: rgba($color-charcoal, 1);
+
+    @include vp-1023 {
+      max-width: none;
+    }
+
+    @include vp-767 {
+      padding: 0;
+      order: 2;
+      font-size: 16px;
+      line-height: 18px;
+      padding: 27px 26px 10px;
+      min-height: 89px;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.1;
+      color: rgba($color-charcoal, 0.6);
+    }
+
+    &:hover {
+      border-color: $color-echo-blue;
+    }
+
+    &:active,
+    &:focus-visible {
+      outline: none;
+      border-color: $color-midnight-express-2;
+    }
+  }
+
+  &__tags-input-label {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: $color-midnight-express-2;
+    background-color: $color-solitude;
+    width: min-content;
+    position: relative;
+    left: 20px;
+    bottom: 9px;
+    padding: 0 10px 0 18px;
+
+    @include vp-1023 {
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0 11px 0 13px;
+      letter-spacing: 0.11em;
+    }
+
+    @include vp-767 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: 0;
+      color: $color-catalina-blue;
+      order: 1;
+      bottom: -11px;
+    }
+  }
+
+  &__profile-photo {
+    width: 220px;
+    height: 237px;
+    border-radius: 24px;
+    overflow: hidden;
+
+    @include vp-1023 {
+      border-radius: 11px;
+      width: 94px;
+      height: 94px;
+    }
+
+    @include vp-767 {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 220 / 237;
+      object-fit: cover;
+    }
+  }
+
+  &__transport-wrap {
+    grid-column: 2 / 3;
+    grid-row: 2 /3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid $color-link-water;
+    border-radius: 10px;
+    min-width: 384px;
+    height: fit-content;
+    width: fit-content;
+    margin-left: 24px;
+    justify-self: center;
+    padding: 24px 15px 4px 18px;
+
+    @include vp-1023 {
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+      margin: 0 63px 0 59px;
+      min-width: 308px;
+      width: 49%;
+      z-index: 1;
+    }
+
+    @include vp-767 {
+      grid-row: 4 / 5;
+      min-width: unset;
+      width: 100%;
+      margin: 14px 0 0;
+      padding: 0;
+      min-height: 63px;
+    }
+  }
+
+  &__transport-label {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: $color-catalina-blue;
+    position: relative;
+    background-color: $color-solitude;
+    width: min-content;
+    bottom: -15px;
+    padding: 0 10px 0 12px;
+
+    @include vp-767 {
+      order: -1;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.125;
+      bottom: 9px;
+      letter-spacing: 0;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include vp-1023 {
+      display: block;
+      min-height: 60px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 0.9;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-align: center;
+      color: $color-catalina-blue;
+      background-color: $color-hawkes-blue-2;
+      border: none;
+      border-radius: 10px;
+
+      @include vp-767 {
+        width: 100%;
+        min-height: 40px;
+        border-radius: 20px;
+        color: $color-midnight-express-2;
+        letter-spacing: 0;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $color-hawkes-blue;
+      }
+
+      &:active {
+        background-color: $color-hawkes-blue-2;
+        color: rgba($color-catalina-blue, 0.3);
+      }
+    }
+  }
+}
